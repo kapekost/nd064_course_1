@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-helloworld
+  name: nginx-helloworld
+  namespace: {{ .Values.namespace.name }} 
+spec:
+  replicas: {{ .Values.replicaCount }} 
+  selector:
+    matchLabels:
+      app: nginx-helloworld
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: nginx-helloworld
+    spec:
+      containers:
+      - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        imagePullPolicy: IfNotPresent 
+        name: nginx-helloworld
+        resources:
+        requests:
+            memory:  {{ .Values.resources.memory }} 
+            cpu:  {{ .Values.resources.cpu }} 
