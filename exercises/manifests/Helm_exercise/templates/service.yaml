@@ -9,5 +9,5 @@ spec:
     app: nginx-helloworld
   ports:
     - protocol: TCP
-      type: {{ .Values.service.type }} 
       port:  {{ .Values.service.port }} 
+  type: {{ .Values.service.type }} 
