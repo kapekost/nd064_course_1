@@ -1,0 +1,10 @@
+apiVersion: v1
+name: nginx-helloworld 
+description: Install an nginx HelloWorld deployment
+keywords:
+- nginx
+- helloworld 
+version: 1.0.0
+maintainers:
+- name: kapekost 
+  email: kapekost@gmail.com
