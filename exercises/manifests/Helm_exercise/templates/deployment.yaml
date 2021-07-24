@@ -25,6 +25,6 @@ spec:
         imagePullPolicy: IfNotPresent 
         name: nginx-helloworld
         resources:
-        requests:
+          requests:
             memory:  {{ .Values.resources.memory }} 
             cpu:  {{ .Values.resources.cpu }} 
